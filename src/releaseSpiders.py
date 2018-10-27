@@ -5,6 +5,8 @@ Be sure to run
 -pip install lxml
 -pip install beautifulsoup4
 -pip install requests
+-pip install pywin32
+-pip install scrapy
 
 Author: Justin Yau
 """

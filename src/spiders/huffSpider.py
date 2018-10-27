@@ -23,19 +23,31 @@ class RetrievedItem(Item):
 
 
 class Crawly(CrawlSpider):
-    name = 'usatoday.com'
-    allowed_domains = ['usatoday.com']
-    start_urls = ['https://www.usatoday.com/', 'https://www.usatoday.com/sports/', 'https://www.usatoday.com/news/',
-                  'https://www.usatoday.com/money/', 'https://www.usatoday.com/tech/', 'https://www.usatoday.com/travel/'
-                  'https://www.usatoday.com/opinion/', 'https://www.usatoday.com/news/investigations/']
+    name = 'huffingtonpost.com'
+    allowed_domains = ['huffingtonpost.com']
+    start_urls = ['https://www.huffingtonpost.com', 'https://www.huffingtonpost.com/section/us-news',
+                  'https://www.huffingtonpost.com/section/world-news', 'https://www.huffingtonpost.com/section/business',
+                  'https://www.huffingtonpost.com/section/green', 'https://www.huffingtonpost.com/section/health',
+                  'https://www.huffingtonpost.com/topic/social-justice', 'https://www.huffingtonpost.com/section/arts',
+                  'https://www.huffingtonpost.com/section/media', 'https://www.huffingtonpost.com/section/celebrity',
+                  'https://www.huffingtonpost.com/section/tv', 'https://www.huffingtonpost.com/topic/us-congress',
+                  'https://www.huffingtonpost.com/topic/2018-elections',
+                  'https://www.huffingtonpost.com/topic/extremism', 'https://www.huffingtonpost.com/section/queer-voices'
+                  , 'https://www.huffingtonpost.com/section/women', 'https://www.huffingtonpost.com/section/black-voices',
+                  'https://www.huffingtonpost.com/section/latino-voices', 'https://www.huffingtonpost.com/section/asian-voices',
+                  'https://www.huffpost.com/life/style', 'https://www.huffpost.com/life/taste', 'https://www.huffpost.com/life/huffpost-home',
+                  'https://www.huffpost.com/life/money', 'https://www.huffpost.com/life/parents', 'https://www.huffpost.com/life/relationships',
+                  'https://www.huffpost.com/life/style', 'https://www.huffpost.com/life/travel', 'https://www.huffpost.com/life/healthy-living',
+                  'https://www.huffpost.com/life/worklife', 'https://www.huffpost.com/life/topic/finds']
 
     rules = (
-        Rule(LinkExtractor(allow=('story/',)), callback='parse_item'),
+        Rule(LinkExtractor(allow=('entry/',)), callback='parse_item'),
     )
 
     def parse_item(self, response):
         item = RetrievedItem()
-        item["title"] = response.xpath(".//head/title/text()").extract()
+        item["title"] = [''.join(response.xpath(".//head/title/text()").extract()).replace(" | HuffPost", "").
+                         replace("\xa0", "")]
         item["body"] = response.xpath(".//p/text()").extract()[10:]
         return item
 
