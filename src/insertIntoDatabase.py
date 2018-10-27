@@ -22,8 +22,12 @@ def add_new_story(title, content, category = "General News"):
     })
 
 if __name__ == "__main__":
-    print("Input the title")
-    title = input()
+    print("Input the name of the file that holds the titles")
+    titles = input()
+    titles = eval(open(titles, 'r').read())
     print("Input the content")
     content = input()
-    add_new_story(title, content)
+    content = eval(open(content, 'r').read())
+    for i in range(len(titles)):
+        #print(titles[i], content[i])
+        add_new_story(titles[i], content[i])
