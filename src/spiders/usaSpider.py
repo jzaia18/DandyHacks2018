@@ -35,8 +35,8 @@ class Crawly(CrawlSpider):
 
     def parse_item(self, response):
         item = RetrievedItem()
-        item["title"] = response.xpath(".//head/title/text()").extract()
-        item["body"] = response.xpath(".//p/text()").extract()[10:]
+        item["title"] = [''.join(response.xpath(".//head/title/text()").extract()).replace("\xa0", "")]
+        item["body"] = [''.join(response.xpath(".//p/text()").extract()[10:]).replace("\xa0", "")]
         return item
 
 
@@ -88,7 +88,6 @@ def main(args) -> List[str]:
     else:
         for item in items:
             result += item["body"]
-    print(result)
     return result
 
 

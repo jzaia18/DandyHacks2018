@@ -100,7 +100,6 @@ def main(args) -> List[str]:
     else:
         for item in items:
             result += item["body"]
-    print(result)
     return result
 
 
