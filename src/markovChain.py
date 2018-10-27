@@ -4,7 +4,7 @@ Author: Jeffrey Weng
 """
 
 import random, os, releaseSpiders
-from spiders import obamaSpider
+from spiders import usaSpider, huffSpider
 
 #Format Text and Create Dictionary
 def build_dict(text, key, previous_Dict):
@@ -127,22 +127,36 @@ def generate_training_data(data, filename, key):
                 open(filename, "w")
                 file.write(str(build_dict(text, key, new_dict)))
 
+# def generate_articles(key, num_articles):
+#     sentences = 10
+#     #Assume there's already training data
+#     #with open(filename, 'w') as file: 
+#         #new_dict = eval(file.readline().replace('\x00', "").strip())
+#         #print(generate_text(new_dict, key, sentences))
+
+# def generate_titles(key):
+#     sentences = 1
+#     #Assume there's already training data
+#     with open("generated_titles.txt", 'w') as file: 
+#         new_dict = eval(file.readline().replace('\x00', "").strip())
+#         #print(generate_text(new_dict, key, sentences))
 
 def main():
     key = 2
-    sentences = 10
     #Obama
     #obama_data.txt
     #obamaSpider.main(["http://obamaspeeches.com/"])
 
+    filename_body = "training_data_key_2.txt"
+    filename_title = "titles.txt"
+    #generate_training_data(releaseSpiders.main(), filename_body, key)
+    generate_training_data(usaSpider.main(["-b"]), filename_body, key)
+    generate_training_data(usaSpider(["-t"]), filename_title, key)
+    generate_training_data(huffSpider(["-b"]), filename_body, key)
+    generate_training_data(huffSpider(["-t"]), filename_title, key)
 
-    filename = "training_data_key_2.txt"
-    #generate_training_data(releaseSpiders.main(), filename, key)
-    #Assume there's already training data
-    with open(filename, 'r+') as file: 
-        new_dict = eval(file.readline().replace('\x00', "").strip())
-        print(generate_text(new_dict, key, sentences))
-    
+
+
     #test
     # text = "The dude is Obama? Bro the fish. The dog Barked! Mom bit the Cat? The dog ate John's bone!"
     # print(generate_text(build_dict(text, key, {}), key, sentences ))
