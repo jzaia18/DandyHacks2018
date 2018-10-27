@@ -40,7 +40,7 @@ def crawl(links) -> List[str]:
             if href[0] != "/":
                 href = "/" + href
             href = "http://obamaspeeches.com" + href
-            print(href)
+            # print(href)
             headers.append(obamaScrapper.main([href]).replace("\xa0", "").strip() + " ")
     return headers
 
