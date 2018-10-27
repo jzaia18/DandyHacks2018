@@ -38,10 +38,29 @@
 }
 
 #comment-inputs textarea {
+    margin-top: 4px;
     resize: none;
     height: 100px;
 }
 
 #comment-submit input {
     width: initial;
+}
+
+.comment-block {
+    margin: 5px;
+    padding: 5px;
+}
+
+.comment-author {
+    font-weight: bold;
+    font-size: 14pt;
+}
+
+.comment-date {
+    color: gray;
+}
+
+.comment-text {
+    font-size: 12pt;
 }

@@ -43,11 +43,20 @@
         <input type="submit" />
       </span>
     </form>
-    {{comments}}
+    <div id="all-comments-wrapper">
+      <hr>
+      {% for comment in comments[::-1] %}
+      <div class="comment-block">
+        <span class="comment-author">{{comment['name']}}</span>
+        <span class="comment-date">({{comment['date']}})</span> <br />
+        <span class="comment-text"> {{comment['comment']}}</span>
+      </div>
+      {% endfor %}
+    </div>
   </div>
 </div>
 {% endblock %}
-
+1
 {% block js %}
 <script type="text/javascript" src="{{ url_for('static', filename='js/article.js' ) }}"></script>
 {% endblock %}

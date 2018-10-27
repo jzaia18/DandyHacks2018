@@ -1,3 +1,7 @@
+body {
+    padding-bottom: 50px;
+}
+
 .main-banner {
 }
 
@@ -47,6 +51,10 @@
 footer {
     background-color: #ef9117;
     color: white !important;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    height: 50px;
 }
 
 footer a {
