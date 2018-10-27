@@ -9,10 +9,11 @@ Author: Justin Yau
 import argparse                 # ArgumentParser
 import requests                 # get
 import scraper                  # main
+import sys                      # argv
 from bs4 import BeautifulSoup   # findAll
 
 
-def setup_arguments() -> argparse.ArgumentParser:
+def setup_arguments(args) -> argparse.ArgumentParser:
     """
     Setups the arguments of this specific program that will return a list containing desired data from a inputted
     HTML website
@@ -24,11 +25,11 @@ def setup_arguments() -> argparse.ArgumentParser:
                                               "specified site", action="store_true")
     parser.add_argument("-b", "--body", help="Whether you would like to retrieve body information from the "
                                              "specified site", action="store_true")
-    return parser.parse_args()
+    return parser.parse_args(args)
 
 
-def main() -> str:
-    args = setup_arguments()
+def main(args) -> str:
+    args = setup_arguments(args)
     html_code = requests.get(args.html_link)
     plain_text = html_code.text
     soup = BeautifulSoup(plain_text, 'lxml')
@@ -50,4 +51,4 @@ def main() -> str:
 
 
 if __name__ == "__main__":
-    main()
+    main(sys.argv[1:])
