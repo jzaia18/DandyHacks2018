@@ -47,6 +47,7 @@ def main() -> List[str]:
         link = json.loads(a.text)["ou"]
         image_url.append(link)
         if len(image_url) == args.number:
+            # print(image_url)
             return image_url
     return image_url
 

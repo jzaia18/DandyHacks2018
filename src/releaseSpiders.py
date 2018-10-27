@@ -37,17 +37,13 @@ url_to_visit = {"ONION": ["https://www.theonion.com/",
 
 def main() -> List[str]:
     training_set = []
-    pass_arg = ["-t"]
+    pass_arg = ["-b"]
     for link in url_to_visit["ONION"]:
         training_set += onionSpider.main([link] + pass_arg)     # + "\n"
-    # print(training_set)
     for link in url_to_visit["WIRED"]:
         training_set += wiredSpider.main([link] + pass_arg)     # + "\n"
-    # print(training_set)
     for link in url_to_visit["ABC"]:
         training_set += abcSpider.main([link] + pass_arg)       # + "\n"
-    # print(training_set)
-    print(training_set)
     return training_set
 
 

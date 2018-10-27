@@ -41,7 +41,7 @@ def crawl(links, pass_args) -> List[str]:
         href = link.get("href")
         if not (href in used_href):
             used_href[href] = True
-            headers.append(scraper.main([href] + pass_args) + " ")
+            headers.append(scraper.main([href] + pass_args).replace("\xa0", "") + " ")
     return headers
 
 

@@ -44,7 +44,8 @@ def main(args) -> List[str]:
         href = link.get("href")
         if not (href in used_href) and "https://abcnews.go.com/US" in href:
             used_href[href] = True
-            headers.append(scraper.main([href] + pass_args).replace("\n", "").replace("- ABC News", ""))
+            headers.append(scraper.main([href] + pass_args).replace("\n", "").replace("- ABC News", "")).\
+                replace("\xa0", "")
     # print(headers)
     return headers
 

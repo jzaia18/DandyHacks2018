@@ -45,7 +45,7 @@ def main(args) -> List[str]:
         if not (href in used_href) and "/story/" in href:
             used_href[href] = True
             href1 = "https://www.wired.com" + href
-            headers.append(scraper.main([href1] + pass_args).replace("\n", "").replace("| WIRED", ""))
+            headers.append(scraper.main([href1] + pass_args).replace("\n", "").replace("| WIRED", "")).replace("\xa0", "")
     # print(headers)
     return headers
 
