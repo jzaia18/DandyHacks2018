@@ -17,6 +17,7 @@ def about():
 
 @app.route("/article/<article_id>")
 def article(article_id):
+    print(mongoUtils.get_comments(article_id))
     return render_template("article.html", article_obj = mongoUtils.get_by_id(article_id), comments = mongoUtils.get_comments(article_id))
 
 @app.route("/vote/<article_id>/<direction>")

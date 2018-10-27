@@ -45,6 +45,8 @@
     </form>
     <div id="all-comments-wrapper">
       <hr>
+
+      {% if comments != None %}
       {% for comment in comments[::-1] %}
       <div class="comment-block">
         <span class="comment-author">{{comment['name']}}</span>
@@ -52,6 +54,7 @@
         <span class="comment-text"> {{comment['comment']}}</span>
       </div>
       {% endfor %}
+      {% endif %}
     </div>
   </div>
 </div>

@@ -8,7 +8,6 @@ articles = db.articles
 comments = db.comments
 
 
-#For testing
 def get_n_stories(n):
     return articles.find()[0:n]
 
@@ -21,8 +20,6 @@ def update_votes(article_id, direction):
         i = -1
     elif direction == "left":
         i = 1
-
-    print(i)
 
     existing = articles.find_one({"_id": ObjectId(article_id)})['votes']
 
@@ -64,4 +61,7 @@ def add_comment(article_id, name, comment):
         }}, upsert=False)
 
 def get_comments(article_id):
-    return comments.find_one({"article_id": ObjectId(article_id)})['comments']
+    comment_obj = comments.find_one({"article_id": ObjectId(article_id)})
+    if comment_obj:
+        return comment_obj['comments']
+    return None

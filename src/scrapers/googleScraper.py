@@ -14,7 +14,7 @@ from bs4 import BeautifulSoup
 from typing import List
 
 
-def setup_arguments() -> argparse.ArgumentParser:
+def setup_arguments(args) -> argparse.ArgumentParser:
     """
     Setups the arguments of this specific program
     :return: An argument parser with all the arguments set up
@@ -22,7 +22,7 @@ def setup_arguments() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser()
     parser.add_argument("query", help="The google image query to make", type=str)
     parser.add_argument("number", help="How many image urls to return from the specified search query", type=int)
-    return parser.parse_args()
+    return parser.parse_args(args)
 
 
 def construct_google_url(search_query: str) -> str:
@@ -36,8 +36,8 @@ def construct_google_url(search_query: str) -> str:
     return "https://www.google.co.in/search?q="+search_query1+"&source=lnms&tbm=isch"
 
 
-def main() -> List[str]:
-    args = setup_arguments()
+def main(args) -> List[str]:
+    args = setup_arguments(args)
     query_url = construct_google_url(args.query)
     header = {'User-Agent': "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) "
                             "Chrome/43.0.2357.134 Safari/537.36"}
