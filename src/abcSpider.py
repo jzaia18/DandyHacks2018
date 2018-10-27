@@ -1,7 +1,7 @@
 """
 Spider
 
-Retrieves all article urls from a given page on the Wired and passes it to a scraper for processing
+Retrieves all article urls from a given page on the ABC and passes it to a scraper for processing
 
 Author: Justin Yau
 """
@@ -31,7 +31,7 @@ def main() -> str:
     args = setup_arguments()
     html_code = requests.get(args.html_link)
     plain_text = html_code.text
-    soup = BeautifulSoup(plain_text, 'lxml')
+    soup = BeautifulSoup(plain_text, 'html.parser')
     used_href = {}
     headers = ""
     pass_args = []
@@ -39,12 +39,11 @@ def main() -> str:
         pass_args.append("-t")
     if args.body:
         pass_args.append("-b")
-    for link in soup.findAll("a"):
+    for link in soup.findAll("a", {"class": "white-ln"}):
         href = link.get("href")
-        if not (href in used_href) and "/story/" in href:
+        if not (href in used_href) and "https://abcnews.go.com/US" in href:
             used_href[href] = True
-            href1 = "https://www.wired.com" + href
-            headers += scraper.main([href1] + pass_args).replace("\n", "").replace("| WIRED", "")
+            headers += scraper.main([href] + pass_args).replace("\n", "").replace("- ABC News", "")
     # print(''.join(headers))
     return ''.join(headers)
 

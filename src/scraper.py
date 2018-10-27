@@ -69,6 +69,7 @@ def main(args) -> str:
             target += content.xpath(queries["TITLE"])
         if args.body:
             target += content.xpath(queries["BODY"])
+        # print(' '.join(target))
         return ' '.join(target)
     else:
         raise Exception("HTML link is either down or invalid! Please input another link...")

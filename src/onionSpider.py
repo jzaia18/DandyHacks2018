@@ -57,7 +57,7 @@ def main() -> str:
         pass_args.append("-b")
     headers += crawl(soup.findAll("a", {"data-contenttype": "Headline"}), pass_args)    # Headline articles
     headers += crawl(soup.findAll("a", {"class": "js_entry-link"}), pass_args)          # Lower priority articles
-    #print(''.join(headers))
+    # print(''.join(headers))
     return ''.join(headers)
 
 
