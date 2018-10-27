@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css' ) }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/base.css' ) }}">
-    <link rel="shortcut icon" href="{{ url_for('static', filename='img/icon.png' ) }}"> <!-- TODO -->
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/base/logo.png' ) }}"> <!-- TODO -->
     <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.min.js' ) }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js' ) }}"></script>
 
@@ -14,6 +14,24 @@
   </head>
 
   <body>
+    <nav class="navbar main-banner">
+      <img src="{{ url_for('static', filename='img/base/logowithtext.png' ) }}" alt="Orange Logo" />
+    </nav>
+
+    <nav class="navbar navbar-expand-lg subpages-nav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About This Project</a>
+        </li>
+        <li class="nav-item nav-item-rightmost">
+          <a class="nav-link" href="#">See the Source Code</a>
+        </li>
+      </ul>
+    </nav>
+
     {% with messages = get_flashed_messages() %}
     {% for message in messages %}
     <center><h2>{{ message }}</h2></center>

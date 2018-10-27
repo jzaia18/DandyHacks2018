@@ -1,0 +1,33 @@
+.main-banner {
+}
+
+.main-banner img {
+    height: 100px;
+    margin: auto;
+}
+
+.subpages-nav{
+    width: 100%;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+.navbar-nav {
+    margin: auto;
+}
+
+.nav-item {
+    border-left: 1px solid black;
+    padding-left: 5px;
+    padding-right: 5px;
+
+}
+
+.nav-item-rightmost {
+    border-right: 1px solid black;
+}
+
+.leftvote-icon, .rightvote-icon {
+    width: 20px;
+    vertical-align: top;
+}

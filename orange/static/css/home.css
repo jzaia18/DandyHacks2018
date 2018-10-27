@@ -1,0 +1,44 @@
+.articles-list {
+    padding: 25px;
+}
+
+.article-wrapper {
+    padding: 5px;
+    display: block;
+    margin: auto;
+    width: 80%;
+    border: 1px solid black;
+    margin-bottom: 30px;
+}
+
+.article-text-td {
+    padding-left: 20px;
+}
+
+.article-votes, .article-category {
+    margin-top: -25px;
+}
+
+.article-votes {
+    float: left;
+    padding-left: 10px;
+}
+
+.article-category {
+    float: right;
+    padding-right: 10px;
+}
+
+.article-img {
+
+}
+
+.article-clickables-wrapper {
+    margin-left: auto;
+    margin-right: 0px;
+}
+
+.article-clickables-wrapper td {
+    padding-left: 10px;
+    padding-right: 10px;
+}
