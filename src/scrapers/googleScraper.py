@@ -26,6 +26,11 @@ def setup_arguments() -> argparse.ArgumentParser:
 
 
 def construct_google_url(search_query: str) -> str:
+    """
+    Constructs the google search url based on the query
+    :param search_query: - The query to make the image search for
+    :return: - A google search url
+    """
     search_query1 = search_query.split()
     search_query1 = '+'.join(search_query1)
     return "https://www.google.co.in/search?q="+search_query1+"&source=lnms&tbm=isch"

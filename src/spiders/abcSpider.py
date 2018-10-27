@@ -1,16 +1,16 @@
 """
 Spider
 
-Retrieves all article urls from a given page on the ABC and passes it to a scraper for processing
+Retrieves all article urls from a given page on the ABC and passes it to a scrapers for processing
 
 Author: Justin Yau
 """
 
 import argparse                 # ArgumentParser
 import requests                 # get
-import scraper                  # main
 import sys                      # argv
 from bs4 import BeautifulSoup   # findAll
+from scrapers import scraper    # main
 from typing import List
 
 

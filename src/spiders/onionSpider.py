@@ -1,16 +1,16 @@
 """
 Spider
 
-Retrieves all article urls from a given page on the Onion and passes it to a scraper for processing
+Retrieves all article urls from a given page on the Onion and passes it to a scrapers for processing
 
 Author: Justin Yau
 """
 
 import argparse                 # ArgumentParser
 import requests                 # get
-import scraper                  # main
 import sys                      # argv
 from bs4 import BeautifulSoup   # findAll
+from scrapers import scraper    # main
 from typing import List
 
 
@@ -30,10 +30,10 @@ def setup_arguments(args) -> argparse.ArgumentParser:
 
 def crawl(links, pass_args) -> List[str]:
     """
-    Constructs the appropriate href and passes it to the scraper for information
+    Constructs the appropriate href and passes it to the scrapers for information
     :param links: The list of 'links' that are essentially elements with attributes according to the website
     :param pass_args: List of arguments based on the input
-    :return: - Information collected by the scraper concatenated together
+    :return: - Information collected by the scrapers concatenated together
     """
     used_href = {}
     headers = []
