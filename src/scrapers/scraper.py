@@ -38,7 +38,7 @@ def initialize_dictionary() -> dict:
     Initializes a basic dictionary containing generalized xpath queries for news articles made by WIRED and the ONION
     :return: A dictionary filled with xpath queries
     """
-    xpath_queries = {"TITLE": "//title/text()",
+    xpath_queries = {"TITLE": "./head/title/text()",
                      "BODY": "//p/text()"}
     return xpath_queries
 
