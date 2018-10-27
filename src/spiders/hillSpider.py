@@ -1,7 +1,7 @@
 """
 Spider
 
-Retrieves all article urls from a given page on the ABC and passes it to a scrapers for processing
+Retrieves all article urls from a given page on the Hill and passes it to a scrapers for processing
 
 Author: Justin Yau
 """
