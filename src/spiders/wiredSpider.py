@@ -11,12 +11,12 @@ import requests                 # get
 import scraper                  # main
 import sys                      # argv
 from bs4 import BeautifulSoup   # findAll
+from typing import List
 
 
 def setup_arguments(args) -> argparse.ArgumentParser:
     """
-    Setups the arguments of this specific program that will return a list containing desired data from a inputted
-    HTML website
+    Setups the arguments of this specific program
     :return: An argument parser with all the arguments set up
     """
     parser = argparse.ArgumentParser()
@@ -28,13 +28,13 @@ def setup_arguments(args) -> argparse.ArgumentParser:
     return parser.parse_args(args)
 
 
-def main(args) -> str:
+def main(args) -> List[str]:
     args = setup_arguments(args)
     html_code = requests.get(args.html_link)
     plain_text = html_code.text
     soup = BeautifulSoup(plain_text, 'lxml')
     used_href = {}
-    headers = ""
+    headers = []
     pass_args = []
     if args.title:
         pass_args.append("-t")
@@ -45,9 +45,9 @@ def main(args) -> str:
         if not (href in used_href) and "/story/" in href:
             used_href[href] = True
             href1 = "https://www.wired.com" + href
-            headers += scraper.main([href1] + pass_args).replace("\n", "").replace("| WIRED", "")
-    # print(''.join(headers))
-    return ''.join(headers)
+            headers.append(scraper.main([href1] + pass_args).replace("\n", "").replace("| WIRED", ""))
+    # print(headers)
+    return headers
 
 
 if __name__ == "__main__":

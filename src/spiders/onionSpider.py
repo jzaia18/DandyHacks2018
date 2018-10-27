@@ -11,12 +11,12 @@ import requests                 # get
 import scraper                  # main
 import sys                      # argv
 from bs4 import BeautifulSoup   # findAll
+from typing import List
 
 
 def setup_arguments(args) -> argparse.ArgumentParser:
     """
-    Setups the arguments of this specific program that will return a list containing desired data from a inputted
-    HTML website
+    Setups the arguments of this specific program
     :return: An argument parser with all the arguments set up
     """
     parser = argparse.ArgumentParser()
@@ -28,7 +28,7 @@ def setup_arguments(args) -> argparse.ArgumentParser:
     return parser.parse_args(args)
 
 
-def crawl(links, pass_args) -> str:
+def crawl(links, pass_args) -> List[str]:
     """
     Constructs the appropriate href and passes it to the scraper for information
     :param links: The list of 'links' that are essentially elements with attributes according to the website
@@ -36,12 +36,12 @@ def crawl(links, pass_args) -> str:
     :return: - Information collected by the scraper concatenated together
     """
     used_href = {}
-    headers = ""
+    headers = []
     for link in links:
         href = link.get("href")
         if not (href in used_href):
             used_href[href] = True
-            headers += scraper.main([href] + pass_args) + " "
+            headers.append(scraper.main([href] + pass_args) + " ")
     return headers
 
 
@@ -50,16 +50,16 @@ def main(args) -> str:
     html_code = requests.get(args.html_link)
     plain_text = html_code.text
     soup = BeautifulSoup(plain_text, 'lxml')
-    headers = ""
+    headers = []
     pass_args = []
     if args.title:
         pass_args.append("-t")
     if args.body:
         pass_args.append("-b")
-    headers += crawl(soup.findAll("a", {"data-contenttype": "Headline"}), pass_args)    # Headline articles
-    headers += crawl(soup.findAll("a", {"class": "js_entry-link"}), pass_args)          # Lower priority articles
-    # print(''.join(headers))
-    return ''.join(headers)
+    headers += crawl(soup.findAll("a", {"data-contenttype": "Headline"}), pass_args)         # Headline articles
+    headers += crawl(soup.findAll("a", {"class": "js_entry-link"}), pass_args)               # Lower priority articles
+    # print(headers)
+    return headers
 
 
 if __name__ == "__main__":

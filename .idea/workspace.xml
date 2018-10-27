@@ -2,11 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="46f7dbd0-ec96-4530-98af-735a7aa76bbe" name="Default Changelist" comment="Added scraper">
-      <change afterPath="$PROJECT_DIR$/src/releaseSpiders.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/scraper/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/scraper/googleScraper.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/abcSpider.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/abcSpider.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/onionSpider.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/onionSpider.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/wiredSpider.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/wiredSpider.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/abcSpider.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/spiders/abcSpider.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/onionSpider.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/spiders/onionSpider.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/releaseSpiders.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/releaseSpiders.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scraper.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/scraper/scraper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/wiredSpider.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/spiders/wiredSpider.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,25 +27,26 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="11" />
+          <entry key="py" value="15" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="11" />
+          <entry key="PLAIN_TEXT" value="1" />
+          <entry key="Python" value="14" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="68" />
-          <entry key="py" value="6623" />
+          <entry key="py" value="8132" />
           <entry key="txt" value="28" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="96" />
-          <entry key="Python" value="6623" />
+          <entry key="PLAIN_TEXT" value="105" />
+          <entry key="Python" value="8123" />
         </counts>
       </usages-collector>
     </session>
@@ -50,10 +54,10 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/scraper.py">
+        <entry file="file://$PROJECT_DIR$/src/scraper/scraper.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="62" column="29" lean-forward="true" selection-start-line="62" selection-start-column="29" selection-end-line="62" selection-end-column="29" />
+            <state relative-caret-position="68">
+              <caret line="61" column="26" selection-start-line="61" selection-start-column="26" selection-end-line="61" selection-end-column="26" />
               <folding>
                 <element signature="e#271#304#0" expanded="true" />
               </folding>
@@ -62,48 +66,74 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/onionSpider.py">
+        <entry file="file://$PROJECT_DIR$/src/markovChain.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-646">
-              <caret line="9" column="34" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
+            <state relative-caret-position="-1680" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/spiders/onionSpider.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-493">
+              <caret line="18" selection-start-line="18" selection-end-line="19" selection-end-column="61" />
               <folding>
-                <marker date="1540616130998" expanded="true" signature="1542:1788" ph="..." />
-                <marker date="1540616130998" expanded="true" signature="1810:2381" ph="..." />
-                <marker date="1540616130998" expanded="true" signature="1810:2383" ph="..." />
+                <element signature="e#137#185#0" expanded="true" />
+                <marker date="1540648364152" expanded="true" signature="1491:1742" ph="..." />
+                <marker date="1540648364152" expanded="true" signature="1764:2327" ph="..." />
+                <marker date="1540648364152" expanded="true" signature="1764:2329" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/wiredSpider.py">
+        <entry file="file://$PROJECT_DIR$/src/spiders/wiredSpider.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="53" column="21" selection-start-line="53" selection-start-column="9" selection-end-line="53" selection-end-column="21" />
+            <state relative-caret-position="119">
+              <caret line="19" column="61" selection-start-line="19" selection-start-column="61" selection-end-line="19" selection-end-column="61" />
               <folding>
-                <element signature="e#138#186#0" expanded="true" />
+                <element signature="e#137#185#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/abcSpider.py">
+        <entry file="file://$PROJECT_DIR$/src/spiders/abcSpider.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="38" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
+            <state relative-caret-position="153">
+              <caret line="19" column="61" selection-start-line="19" selection-start-column="61" selection-end-line="19" selection-end-column="61" />
+              <folding>
+                <element signature="e#135#183#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/releaseSpiders.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="47" column="36" selection-start-line="47" selection-start-column="36" selection-end-line="47" selection-end-column="36" />
+              <folding>
+                <element signature="e#45#100#0" expanded="true" />
+                <marker date="1540647388020" expanded="true" signature="1815:1820" ph="..." />
+                <marker date="1540647388020" expanded="true" signature="1815:2278" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/releaseSpiders.py">
+        <entry file="file://$PROJECT_DIR$/src/scraper/googleScraper.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="50" lean-forward="true" selection-start-line="50" selection-end-line="50" />
+            <state relative-caret-position="204">
+              <caret line="43" column="41" selection-start-line="43" selection-start-column="41" selection-end-line="43" selection-end-column="41" />
               <folding>
-                <marker date="1540617116570" expanded="true" signature="1789:1794" ph="..." />
-                <marker date="1540617116570" expanded="true" signature="1789:2228" ph="..." />
+                <element signature="e#131#175#0" expanded="true" />
+                <marker date="1540650319620" expanded="true" signature="803:977" ph="..." />
+                <marker date="1540650319620" expanded="true" signature="1605:1608" ph="..." />
               </folding>
             </state>
           </provider>
@@ -133,18 +163,22 @@
         <option value="$PROJECT_DIR$/src/crawler.py" />
         <option value="$PROJECT_DIR$/src/onioncrawler.py" />
         <option value="$PROJECT_DIR$/src/onion_spider.py" />
-        <option value="$PROJECT_DIR$/src/scraper.py" />
         <option value="$PROJECT_DIR$/src/releaseSpider.py" />
+        <option value="$PROJECT_DIR$/src/scraper.py" />
         <option value="$PROJECT_DIR$/src/onionSpider.py" />
         <option value="$PROJECT_DIR$/src/wiredSpider.py" />
         <option value="$PROJECT_DIR$/src/abcSpider.py" />
         <option value="$PROJECT_DIR$/src/releaseSpiders.py" />
+        <option value="$PROJECT_DIR$/src/googleImageScraper.py" />
+        <option value="$PROJECT_DIR$/src/spiders/onionSpider.py" />
+        <option value="$PROJECT_DIR$/src/spiders/wiredSpider.py" />
+        <option value="$PROJECT_DIR$/src/spiders/abcSpider.py" />
+        <option value="$PROJECT_DIR$/src/googleScraper.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="1110" />
-    <option name="y" value="5" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="680" />
     <option name="width" value="780" />
     <option name="height" value="970" />
   </component>
@@ -178,6 +212,8 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\justi\OneDrive\Documents\Hackathon\DandyHacks2018\src\scraper" />
+      <recent name="C:\Users\justi\OneDrive\Documents\Hackathon\DandyHacks2018\src\spiders" />
       <recent name="C:\Users\justi\OneDrive\Documents\Hackathon\DandyHacks2018\orange" />
     </key>
   </component>
@@ -193,7 +229,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.releaseSpiders">
+  <component name="RunManager" selected="Python.googleScraper">
     <configuration name="abcSpider" type="PythonConfigurationType" factoryName="Python">
       <module name="DandyHacks2018" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -206,7 +242,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/abcSpider.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\justi\OneDrive\Documents\Hackathon\DandyHacks2018\src\spiders\abcSpider.py" />
       <option name="PARAMETERS" value="https://abcnews.go.com/ -t" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -227,8 +263,29 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="C:\Users\justi\OneDrive\Documents\Hackathon\DandyHacks2018\src\onionSpider.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\justi\OneDrive\Documents\Hackathon\DandyHacks2018\src\spiders\onionSpider.py" />
       <option name="PARAMETERS" value="https://www.theonion.com/tag/election-2018 -b" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="googleScraper" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="DandyHacks2018" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="C:\Users\justi\OneDrive\Documents\Hackathon\DandyHacks2018\src\scraper\googleScraper.py" />
+      <option name="PARAMETERS" value="&quot;tree&quot; 1" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -248,7 +305,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/onionSpider.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\justi\OneDrive\Documents\Hackathon\DandyHacks2018\src\spiders\onionSpider.py" />
       <option name="PARAMETERS" value="http://theonion.com -b" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -290,7 +347,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/scraper.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\justi\OneDrive\Documents\Hackathon\DandyHacks2018\src\scraper\scraper.py" />
       <option name="PARAMETERS" value="https://www.wired.com/story/tech-workers-overwhelmingly-support-democrats/ -t" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -311,7 +368,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/wiredSpider.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\justi\OneDrive\Documents\Hackathon\DandyHacks2018\src\spiders\wiredSpider.py" />
       <option name="PARAMETERS" value="https://www.wired.com -t" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -327,12 +384,14 @@
       <item itemvalue="Python.wiredSpider" />
       <item itemvalue="Python.onionSpider" />
       <item itemvalue="Python.releaseSpiders" />
+      <item itemvalue="Python.googleScraper" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.googleScraper" />
         <item itemvalue="Python.releaseSpiders" />
-        <item itemvalue="Python.wiredSpider" />
         <item itemvalue="Python.onionSpider" />
+        <item itemvalue="Python.wiredSpider" />
         <item itemvalue="Python.crawler" />
       </list>
     </recent_temporary>
@@ -360,19 +419,19 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.24983476" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="0" weight="0.32907802" />
-      <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="2" />
-      <window_info anchor="bottom" id="Find" order="3" />
-      <window_info anchor="bottom" id="Python Console" order="4" weight="0.32907802" />
-      <window_info anchor="bottom" id="Version Control" order="5" weight="0.32907802" />
-      <window_info active="true" anchor="bottom" id="Run" order="6" visible="true" weight="0.32907802" />
+      <window_info anchor="bottom" id="Event Log" order="0" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="1" />
+      <window_info anchor="bottom" id="Find" order="2" />
+      <window_info anchor="bottom" id="Python Console" order="3" weight="0.32907802" />
+      <window_info anchor="bottom" id="Version Control" order="4" weight="0.32907802" />
+      <window_info active="true" anchor="bottom" id="Run" order="5" visible="true" weight="0.32907802" />
+      <window_info anchor="bottom" id="Terminal" order="6" weight="0.32907802" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
@@ -423,52 +482,84 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/scraper.py">
+    <entry file="file://$PROJECT_DIR$/src/markovChain.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="62" column="29" lean-forward="true" selection-start-line="62" selection-start-column="29" selection-end-line="62" selection-end-column="29" />
+        <state relative-caret-position="-1680" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/spiders/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/googleImageScraper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/spiders/wiredSpider.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="19" column="61" selection-start-line="19" selection-start-column="61" selection-end-line="19" selection-end-column="61" />
+          <folding>
+            <element signature="e#137#185#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/spiders/abcSpider.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="19" column="61" selection-start-line="19" selection-start-column="61" selection-end-line="19" selection-end-column="61" />
+          <folding>
+            <element signature="e#135#183#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/spiders/onionSpider.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-493">
+          <caret line="18" selection-start-line="18" selection-end-line="19" selection-end-column="61" />
+          <folding>
+            <element signature="e#137#185#0" expanded="true" />
+            <marker date="1540648364152" expanded="true" signature="1491:1742" ph="..." />
+            <marker date="1540648364152" expanded="true" signature="1764:2327" ph="..." />
+            <marker date="1540648364152" expanded="true" signature="1764:2329" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/scraper/scraper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="61" column="26" selection-start-line="61" selection-start-column="26" selection-end-line="61" selection-end-column="26" />
           <folding>
             <element signature="e#271#304#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/onionSpider.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-646">
-          <caret line="9" column="34" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
-          <folding>
-            <marker date="1540616130998" expanded="true" signature="1542:1788" ph="..." />
-            <marker date="1540616130998" expanded="true" signature="1810:2381" ph="..." />
-            <marker date="1540616130998" expanded="true" signature="1810:2383" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/wiredSpider.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="53" column="21" selection-start-line="53" selection-start-column="9" selection-end-line="53" selection-end-column="21" />
-          <folding>
-            <element signature="e#138#186#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/abcSpider.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="38" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/releaseSpiders.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="50" lean-forward="true" selection-start-line="50" selection-end-line="50" />
+        <state relative-caret-position="238">
+          <caret line="47" column="36" selection-start-line="47" selection-start-column="36" selection-end-line="47" selection-end-column="36" />
           <folding>
-            <marker date="1540617116570" expanded="true" signature="1789:1794" ph="..." />
-            <marker date="1540617116570" expanded="true" signature="1789:2228" ph="..." />
+            <element signature="e#45#100#0" expanded="true" />
+            <marker date="1540647388020" expanded="true" signature="1815:1820" ph="..." />
+            <marker date="1540647388020" expanded="true" signature="1815:2278" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/scraper/googleScraper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="43" column="41" selection-start-line="43" selection-start-column="41" selection-end-line="43" selection-end-column="41" />
+          <folding>
+            <element signature="e#131#175#0" expanded="true" />
+            <marker date="1540650319620" expanded="true" signature="803:977" ph="..." />
+            <marker date="1540650319620" expanded="true" signature="1605:1608" ph="..." />
           </folding>
         </state>
       </provider>

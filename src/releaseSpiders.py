@@ -4,8 +4,8 @@ Spider releaser
 Author: Justin Yau
 """
 
-
-import onionSpider, wiredSpider, abcSpider          # main
+from spiders import abcSpider, onionSpider, wiredSpider
+from typing import List
 
 url_to_visit = {"ONION": ["https://www.theonion.com/",
                           "https://www.theonion.com/tag/election-2018",
@@ -35,8 +35,8 @@ url_to_visit = {"ONION": ["https://www.theonion.com/",
                         "https://abcnews.go.com/alerts/weather"]}
 
 
-def main() -> str:
-    training_set = ""
+def main() -> List[str]:
+    training_set = []
     pass_arg = ["-t"]
     for link in url_to_visit["ONION"]:
         training_set += onionSpider.main([link] + pass_arg)     # + "\n"
@@ -47,6 +47,7 @@ def main() -> str:
     for link in url_to_visit["ABC"]:
         training_set += abcSpider.main([link] + pass_arg)       # + "\n"
     # print(training_set)
+    print(training_set)
     return training_set
 
 
