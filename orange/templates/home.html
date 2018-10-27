@@ -13,8 +13,10 @@ The Orange
 <div class="articles-list">
 
   <div class="article-wrapper rounded">
-    <span class="article-votes"> <img class="leftvote-icon" src="{{ url_for('static', filename='img/ikons/svg/arrow_left.svg' ) }}" alt="Left Vote" /> 0 <img class="rightvote-icon" src="{{ url_for('static', filename='img/ikons/svg/arrow_right.svg' ) }}" alt="Right Vote" /> </span>
-    <span class="article-category"> Politics </span>
+    <p class="article-wrapper-header">
+      2018-10-26
+      <span class="article-category"> Politics </span>
+    </p>
     <table>
       <tr>
         <td class="article-img-td">
@@ -27,6 +29,9 @@ The Orange
         </td>
       </tr>
     </table>
+    <img class="leftvote-icon" src="{{ url_for('static', filename='img/ikons/svg/arrow_left.svg' ) }}" alt="Left Vote" />
+    0
+    <img class="rightvote-icon" src="{{ url_for('static', filename='img/ikons/svg/arrow_right.svg' ) }}" alt="Right Vote" />
     <table class="article-clickables-wrapper">
       <tr>
         <td>
@@ -39,6 +44,51 @@ The Orange
     </table>
   </div>
 
+  {% for article_obj in articles_list %}
+  <div class="article-wrapper rounded">
+    <div class="article-main" onclick="window.location = '/article/{{article_obj._id}}';">
+      <p class="article-wrapper-header">
+        {{article_obj.date}}
+        <span class="article-category"> {{article_obj.category}} </span>
+      </p>
+      <table>
+        <tr>
+          <td class="article-img-td">
+            <img class="article-img" src="{{article_obj.img_url}}" />
+          </td>
+          <td class="article-text-td">
+            <h2 class="article-title"> {{article_obj.title}} </h2>
+            <p class="article-sampletext"> {{article_obj.content[0:300]}}...
+            </p>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="article-footer">
+      <img class="leftvote-icon" src="{{ url_for('static', filename='img/ikons/svg/arrow_left.svg' ) }}" alt="Left Vote" onclick="vote('{{article_obj._id}}', 'left');" />
+      <span id="votes-{{article_obj._id}}">
+        {% set votes = article_obj.votes | int %}
+        {{ votes }}
+      </span>
+      <img class="rightvote-icon" src="{{ url_for('static', filename='img/ikons/svg/arrow_right.svg' ) }}" alt="Right Vote" onclick="vote('{{article_obj._id}}', 'right');" />
+      <table class="article-clickables-wrapper">
+        <tr>
+          <td>
+            Comment
+          </td>
+          <td>
+            Share
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  {% endfor %}
+
 </div>
 
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript" src="{{ url_for('static', filename='js/ajax.js' ) }}"></script>
 {% endblock %}

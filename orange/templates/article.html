@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{article_obj.title}}
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/article.css' ) }}">
+{% endblock %}
+
+
+{% block body %}
+<div id="wrapper">
+  <div id="story-wrapper">
+    <hr>
+    <h1 id="story-title"> {{article_obj.title}} </h1>
+    <p id="story-info">
+      <span>
+        {{article_obj.date}}
+      </span>
+      *
+      <span>
+        {{article_obj.category}}
+      </span>
+    </p>
+    <hr>
+    <img id="story-main-img" src="{{article_obj.img_url}}" alt="Article Image" />
+    <div id="story-content">
+      <p>
+        {{article_obj.content}}
+      </p>
+    </div>
+  </div>
+  <hr>
+  <div id="comments-wrapper">
+    <h2> Comments </h2>
+    <form id="comment-inputs" action="/comment/{{article_obj._id}}" method="POST">
+      <input type="text" name="name" placeholder="Enter your name" />
+      <br />
+      <textarea placeholder="Enter your comment" name="comment"></textarea>
+      <span id="comment-submit">
+        <br />
+        <input type="submit" />
+      </span>
+    </form>
+    <div id="all-comments-wrapper">
+      <hr>
+      {% for comment in comments[::-1] %}
+      <div class="comment-block">
+        <span class="comment-author">{{comment['name']}}</span>
+        <span class="comment-date">({{comment['date']}})</span> <br />
+        <span class="comment-text"> {{comment['comment']}}</span>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock %}
+1
+{% block js %}
+<script type="text/javascript" src="{{ url_for('static', filename='js/article.js' ) }}"></script>
+{% endblock %}
