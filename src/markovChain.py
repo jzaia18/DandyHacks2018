@@ -1,7 +1,12 @@
-import random
+"""
+markovChain Algorithm
+Author: Jeffrey Weng
+"""
+
+import random, os, releaseSpiders
 
 #Format Text and Create Dictionary
-def build_dict(text, key):
+def build_dict(text, key, previous_Dict):
     #format for splitting
     if "?" in text:
         text = text.replace('?', ' ?')
@@ -11,7 +16,7 @@ def build_dict(text, key):
         text = text.replace('.', ' .')
 
     textList = text.split()
-    associated_values = {}
+    associated_values = previous_Dict
     word_key = ""
     #create dictionary
     for i in range(len(textList) - (key)):
@@ -28,32 +33,54 @@ def build_dict(text, key):
         word_key = ""
     return associated_values
 
-#Generating Text 
-def generate_text(theDict, key): 
+def generate_random_key(theDict, key):
     #find random first line(Must be capital)
     random_key = list(theDict.keys())[random.randint(0, len(list(theDict.keys())) - 1)] 
     while not str(random_key[0]).isupper():
         random_key = list(theDict.keys())[random.randint(0, len(list(theDict.keys())) - 1)] 
-    
     #punctuation check on the end of the first line
     last_value = random_key.split(" ")[key - 1].strip()
 
     if last_value == "." or last_value == "?" or last_value == "!":
         random_key = random_key.strip().replace(last_value, "")
         random_key = random_key.strip() + last_value
+    
+    return random_key
 
+#Generating Text 
+def generate_text(theDict, key, sentences): 
     #add random first line to generated text
+    random_key = generate_random_key(theDict, key)
+
     text = str(random_key) + " "
     temp_str = ""
+    while sentences > 0:
 
-    while random_key[-1] != "." and random_key[-1] != "?" and random_key[-1] != "!":
+        #test # of sentences
+        if random_key[-1] == "." or random_key[-1] == "?" or random_key[-1] == "!": 
+            text += " "
+            sentences -= 1
+        if sentences == 0: 
+            break
 
         #obtain random_next_key based on weights
-        weighted_keys = list(theDict[random_key].keys())
-        for value in range(len(weighted_keys)): 
-            temp_str += (str(weighted_keys[value] + " ") * int(theDict[random_key][weighted_keys[value]]))
-        random_next_key = temp_str.strip().split(" ")[random.randint(0, len(temp_str.strip().split(" ")) - 1)]
-        
+        if random_key in theDict:
+            weighted_keys = list(theDict[random_key].keys())
+            print(len(weighted_keys))
+            for value in range(len(weighted_keys)): 
+                temp_str += (str(weighted_keys[value] + " ") * int(theDict[random_key][weighted_keys[value]]))
+            random_next_key  = temp_str.strip().split(" ")[random.randint(0, len(temp_str.strip().split(" ")) - 1)]
+        else: 
+            random_key = generate_random_key(theDict, key)
+            text += str(random_key) + " "
+
+            print(len(weighted_keys))
+            weighted_keys = list(theDict[random_key].keys())
+            for value in range(len(weighted_keys)): 
+                temp_str += (str(weighted_keys[value] + " ") * int(theDict[random_key][weighted_keys[value]]))
+            random_next_key = temp_str.strip().split(" ")[random.randint(0, len(temp_str.strip().split(" ")) - 1)]
+
+
         #test random_next_key punctuation
         if(random_next_key == "." or random_next_key == "?" or random_next_key == "!"): 
             text = text.strip()
@@ -68,9 +95,28 @@ def generate_text(theDict, key):
         temp_str = ""
     return text
 
-def main():
-    text = "The cat ate the fish. The dog barked and bit the cat? The dog ate John's bone!"
+
+def generate_training_data(data, filename):
     key = 3
-    print(generate_text(build_dict(text, key), key))
+    for text in data: 
+        with open(filename, 'r+') as file: 
+            if os.stat(filename).st_size == 0: 
+                file.write(str(build_dict(text, key, {})))
+            else:
+                new_dict = eval(file.readline().replace('\x00', "").strip())
+                open(filename, "w")
+                file.write(str(build_dict(text, key, new_dict)))
+
+
+def main():
+    key = 3
+    sentences = 10
+    filename = "sports_training_data.txt"
+    generate_training_data(releaseSpiders.main(), filename)
+    #Assume there's already training data
+    with open(filename, 'r+') as file: 
+        new_dict = eval(file.readline().replace('\x00', "").strip())
+        #print(generate_text(new_dict, key, sentences))
+
 
 main()
