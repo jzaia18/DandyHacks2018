@@ -1,6 +1,11 @@
 """
 Spider releaser
 
+Be sure to run
+-pip install lxml
+-pip install beautifulsoup4
+-pip install requests
+
 Author: Justin Yau
 """
 
