@@ -56,7 +56,7 @@ def build_dict(text, key):
     if "." in text:
         text = text.replace('.', ' .')
 
-    textList = text.split(" ")
+    textList = text.split()
     associated_values = {}
     word_key = ""
     for i in range(len(textList) - (key)):
@@ -74,14 +74,14 @@ def build_dict(text, key):
     return associated_values
 
 #Generating Text 
-def generate_text(theDict): 
+def generate_text(theDict, key): 
     #find random first line
     random_key = list(theDict.keys())[random.randint(0, len(list(theDict.keys())) - 1)] 
     while not str(random_key[0]).isupper():
         random_key = list(theDict.keys())[random.randint(0, len(list(theDict.keys())) - 1)] 
     #add random first line to generated text
     #Change so as to fit to key
-    last_value = random_key.split(" ")[2].strip()
+    last_value = random_key.split(" ")[key - 1].strip()
 
     if last_value == "." or last_value == "?" or last_value == "!":
         random_key = random_key.strip().replace(last_value, "")
@@ -98,6 +98,7 @@ def generate_text(theDict):
             temp_str += (str(weighted_keys[value] + " ") * int(theDict[random_key][weighted_keys[value]]))
         random_next_key = temp_str.strip().split(" ")[random.randint(0, len(temp_str.strip().split(" ")) - 1)]
         
+
         if(random_next_key == "." or random_next_key == "?" or random_next_key == "!"): 
             text = text.strip()
             text += random_next_key
@@ -106,12 +107,11 @@ def generate_text(theDict):
 
         #use a new random_key based on the chosen word
         #Change so as to fit to key
-        random_key = random_key.split(" ")[1] + " " + random_key.split(" ")[2] + " " + random_next_key
+        random_key = " ".join(random_key.split(" ")[1:key]) + " " + random_next_key
         random_key = random_key.strip()
 
         temp_str = ""
     return text
- 
 
-theDict = build_dict(text1, 3)
-print(generate_text(theDict))
+key = 3
+print(generate_text(build_dict(text1, key), key))
