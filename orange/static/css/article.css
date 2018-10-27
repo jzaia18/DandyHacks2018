@@ -1,0 +1,47 @@
+#wrapper {
+    padding: 30px;
+    padding-right: 10vw;
+    padding-left: 10vw;
+}
+
+#story-wrapper *{
+    margin: auto;
+}
+
+#comments-wrapper {
+    margin: auto;
+}
+
+#comment-inputs textarea, #comment-inputs input{
+    width: 100%;
+}
+
+#story-main-img {
+    display: block;
+    max-width: 80vw;
+    padding: 10px;
+}
+
+#story-title {
+    padding: 7px;
+    font-size: 36pt;
+    font-weight: bold;
+}
+
+#story-info {
+    padding-left: 20px;
+}
+
+#story-content {
+    padding: 10px;
+    font-size: 18pt;
+}
+
+#comment-inputs textarea {
+    resize: none;
+    height: 100px;
+}
+
+#comment-submit input {
+    width: initial;
+}

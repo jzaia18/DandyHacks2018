@@ -2,32 +2,53 @@
 }
 
 .main-banner img {
-    height: 100px;
+    max-height: 100px;
     margin: auto;
+    max-width: 90vw;
 }
 
 .subpages-nav{
     width: 100%;
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
 }
 
 .navbar-nav {
     margin: auto;
 }
 
-.nav-item {
-    border-left: 1px solid black;
-    padding-left: 5px;
-    padding-right: 5px;
+.subpages-nav {
+    padding-top: 0;
+    padding-bottom: 0;
 
 }
 
+.nav-item {
+    border-left: 1px solid gray;
+    padding-left: 5px;
+    padding-right: 5px;
+    vertical-align: middle;
+    font-family: "ProximaNovaCond",sans-serif;
+}
+
+.nav-link, .nav-link:hover {
+    color: #707070;
+}
+
 .nav-item-rightmost {
-    border-right: 1px solid black;
+    border-right: 1px solid gray;
 }
 
 .leftvote-icon, .rightvote-icon {
     width: 20px;
     vertical-align: top;
+}
+
+footer {
+    background-color: #ef9117;
+    color: white !important;
+}
+
+footer a {
+    color: white !important;
 }
