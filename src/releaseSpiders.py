@@ -45,6 +45,7 @@ def main() -> List[str]:
     pass_arg = ["-b"]
     for link in url_to_visit["ONION"]:
         training_set += onionSpider.main([link] + pass_arg)     # + "\n"
+    print(training_set)
     for link in url_to_visit["WIRED"]:
         training_set += wiredSpider.main([link] + pass_arg)     # + "\n"
     for link in url_to_visit["ABC"]:
