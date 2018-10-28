@@ -157,7 +157,7 @@ def main():
     # with open("usaTODAY(BODY).txt", "r") as file: 
     #    generate_training_data(eval(file.readline()), filename_body, key)
     # with open("huffPost(TITLE).txt", "r") as file: 
-    #     generate_training_data(data, filename_title, key)
+    #     generate_training_data(eval(file.readline()), filename_title, key)
     # with open("huffPost(BODY).txt", "r") as file: 
     #     generate_training_data(eval(file.readline()), filename_body, key)
 
