@@ -45,7 +45,7 @@ def crawl(links) -> List[str]:
     return headers
 
 
-def main(args) -> str:
+def main(args) -> List[str]:
     args = setup_arguments(args)
     html_code = requests.get(args.html_link)
     plain_text = html_code.text
