@@ -38,7 +38,7 @@ def construct_google_url(search_query: str) -> str:
 
 def main(args) -> List[str]:
     args = setup_arguments(args)
-    query_url = construct_google_url(args.query)
+    query_url = construct_google_url(args.query).encode('ascii', 'ignore').decode('ascii')
     header = {'User-Agent': "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) "
                             "Chrome/43.0.2357.134 Safari/537.36"}
     soup = BeautifulSoup(urllib.request.urlopen(urllib.request.Request(query_url, headers=header)), 'html.parser')
