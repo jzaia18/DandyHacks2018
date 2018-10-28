@@ -7,6 +7,7 @@ Author: Justin Yau
 import scrapy
 import argparse
 import sys
+import markovChain
 from scrapy.spiders import CrawlSpider, Rule
 from scrapy.linkextractors import LinkExtractor
 from scrapy.crawler import CrawlerProcess
@@ -82,7 +83,7 @@ def process_item(item: scrapy.item, args: argparse.ArgumentParser) -> str:
     return ""
 
 
-def main(args) -> List[str]:
+def main(args):
     args = setup_arguments(args)
 
     process = CrawlerProcess({
@@ -97,12 +98,11 @@ def main(args) -> List[str]:
     if args.title:
         for item in items:
             result += item["title"]
+        markovChain.generate_training_data(result, "titles.txt", 2)
     else:
         for item in items:
             result += item["body"]
-    #with open("huffPost(TITLE).txt", "w", encoding="UTF-8") as f:
-    #    f.write('["' + '", "'.join(result) + '"]')
-    return result
+        markovChain.generate_training_data(result, "training_data_key_2.txt", 2)
 
 
 if __name__ == "__main__":
