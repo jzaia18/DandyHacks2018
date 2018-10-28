@@ -2,10 +2,7 @@ body {
     padding-bottom: 50px;
 }
 
-.main-banner {
-}
-
-.main-banner img {
+.main-banner a, .main-banner img {
     max-height: 100px;
     margin: auto;
     max-width: 90vw;
