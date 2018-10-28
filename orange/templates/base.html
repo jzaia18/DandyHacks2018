@@ -16,7 +16,7 @@
 
   <body>
     <nav class="navbar main-banner">
-      <img src="{{ url_for('static', filename='img/base/logowithtext.png' ) }}" alt="Orange Logo" />
+      <a href="/home"> <img src="{{ url_for('static', filename='img/base/logowithtext.png' ) }}" alt="Orange Logo" /></a>
     </nav>
 
     <nav class="navbar navbar-expand-lg subpages-nav">
@@ -42,8 +42,8 @@
     {% block body %} {% endblock %}
 
     {% block js %} {% endblock %}
-    <footer class="page-footer font-small blue">
-      <div class="footer-copyright text-center py-3">© 2018 Copyright: Steven Li, Jeffrey Weng, Justin Yau, <a href="http://github.com/jzaia18"> Jake Zaia </a>
+    <footer class="page-footer font-small">
+      <div class="footer-copyright text-center">© 2018 Copyright: <a href="https://github.com/sli7826"> Steven Li</a>, <a href="http://github.com/devjw2"> Jeffrey Weng</a>, <a href="https://github.com/JosticeMan"> Justin Yau</a>, <a href="http://github.com/jzaia18"> Jake Zaia </a>
       </div>
     </footer>
   </body>

@@ -154,6 +154,7 @@ def main():
     filename_body = "training_data_key_2.txt"
     filename_title = "titles.txt"
 
+<<<<<<< HEAD
     # with open("usaTODAY(BODY).txt", "r") as file: 
     #    generate_training_data(eval(file.readline()), filename_body, key)
     # with open("huffPost(TITLE).txt", "r") as file: 
@@ -167,6 +168,13 @@ def main():
 
     #generate_articles(key, "generated_articles.txt", "training_data_key_2.txt", 10)
     #generate_titles(key, "generated_titles.txt", "titles.txt", 10)
+=======
+    
+    #generate_training_data([data], filename_body, key)
+
+    generate_articles(key, "generated_articles.txt", "training_data_key_2.txt", 15)
+    generate_titles(key, "generated_titles.txt", "titles.txt", 15)
+>>>>>>> 279b2026eadb7d3eba1a5bb6bdcdf13866a28769
     
     #test
     #text = "The dude is Obama? Bro the fish. The dog Barked! Mom bit the Cat? The dog ate John's bone!"

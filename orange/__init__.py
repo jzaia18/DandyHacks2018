@@ -30,7 +30,7 @@ def comment(article_id):
     if not 'comment' in request.form:
         return redirect("article/"+article_id)
 
-    if 'name' in request.form:
+    if 'name' in request.form and request.form['name'] and request.form['name'] != "":
         name = request.form['name']
     else:
         name = "Anynomous"
@@ -39,7 +39,7 @@ def comment(article_id):
 
     mongoUtils.add_comment(article_id, name, comment)
 
-    return redirect("article/"+article_id)
+    return redirect("article/"+article_id+"#comments")
 
 if __name__ == "__main__":
     app.debug = True

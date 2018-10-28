@@ -18,7 +18,7 @@
       <span>
         {{article_obj.date}}
       </span>
-      *
+      |
       <span>
         {{article_obj.category}}
       </span>
@@ -33,6 +33,7 @@
   </div>
   <hr>
   <div id="comments-wrapper">
+    <a name="comments"></a>
     <h2> Comments </h2>
     <form id="comment-inputs" action="/comment/{{article_obj._id}}" method="POST">
       <input type="text" name="name" placeholder="Enter your name" />
