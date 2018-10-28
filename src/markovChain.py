@@ -3,7 +3,7 @@ markovChain Algorithm
 Author: Jeffrey Weng
 """
 
-import random, os, releaseSpiders, codecs
+import random, os, releaseSpiders, io
 
 #Format Text and Create Dictionary
 def build_dict(text, key, previous_Dict):
@@ -165,11 +165,15 @@ def main():
     #    generate_training_data(eval(file.readline()), filename_title, key)
     #generate_training_data(releaseSpiders.main(), filename_body, key)
 
-    generate_articles(key, "generated_articles.txt", "training_data_key_2.txt", 10)
-    generate_titles(key, "generated_titles.txt", "titles.txt", 10)
+    #generate_articles(key, "generated_articles.txt", "training_data_key_2.txt", 10)
+    #generate_titles(key, "generated_titles.txt", "titles.txt", 10)
     
     #test
     #text = "The dude is Obama? Bro the fish. The dog Barked! Mom bit the Cat? The dog ate John's bone!"
     #print(generate_text(build_dict(text, key, {}), key, sentences ))
-    
+
+    with io.open("training_data_key_2.txt", "r", encoding="UTF-8") as f:
+        print(f.read()[-3:])
+
+
 main()
