@@ -15,18 +15,16 @@ def get_by_id(article_id):
     return articles.find_one({"_id": ObjectId(article_id)})
 
 def update_votes(article_id, direction):
-    i = 0
-    if direction == "right":
-        i = -1
-    elif direction == "left":
-        i = 1
+    direction = int(direction)
+    if abs(direction) > 2: #dont accept clearly fake responses
+        return
 
     existing = articles.find_one({"_id": ObjectId(article_id)})['votes']
 
     articles.update_one(
         {"_id": ObjectId(article_id)},
         {"$set": {
-            "votes": existing + i
+            "votes": existing + direction
         }}, upsert=False)
 
 def add_comment(article_id, name, comment):

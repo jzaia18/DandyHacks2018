@@ -12,38 +12,6 @@ The Orange
 
 <div class="articles-list">
 
-  <div class="article-wrapper rounded">
-    <p class="article-wrapper-header">
-      2018-10-26
-      <span class="article-category"> Politics </span>
-    </p>
-    <table>
-      <tr>
-        <td class="article-img-td">
-          <img class="article-img" src="{{ url_for('static', filename='img/home/sample.jpg' ) }}" />
-        </td>
-        <td class="article-text-td">
-          <h2 class="article-title"> Saudis Tout Hundreds Of Yemeni Lives Saved By Spending So Much Time Focused On Killing Khashoggi </h2>
-          <p class="article-sampletext"> RIYADH—Championing the brutal murder and dismemberment of the journalist as a humanitarian effort, Saudi crown prince Mohammed bin Salman on Friday reportedly touted the hundreds of Yemeni lives saved by the Saudis’ spending so much time focused on killing Jamal Khashoggi. “I can now confirm that the death of Mr. Khashoggi was planned meticulously and far in advance,
-          </p>
-        </td>
-      </tr>
-    </table>
-    <img class="leftvote-icon" src="{{ url_for('static', filename='img/ikons/svg/arrow_left.svg' ) }}" alt="Left Vote" />
-    0
-    <img class="rightvote-icon" src="{{ url_for('static', filename='img/ikons/svg/arrow_right.svg' ) }}" alt="Right Vote" />
-    <table class="article-clickables-wrapper">
-      <tr>
-        <td>
-          Comment
-        </td>
-        <td>
-          Share
-        </td>
-      </tr>
-    </table>
-  </div>
-
   {% for article_obj in articles_list %}
   <div class="article-wrapper rounded">
     <div class="article-main" onclick="window.location = '/article/{{article_obj._id}}';">
@@ -65,12 +33,12 @@ The Orange
       </table>
     </div>
     <div class="article-footer">
-      <img class="leftvote-icon" src="{{ url_for('static', filename='img/ikons/svg/arrow_left.svg' ) }}" alt="Left Vote" onclick="vote('{{article_obj._id}}', 'left');" />
+      <img class="leftvote-icon" src="{{ url_for('static', filename='img/ikons/svg/arrow_left.svg' ) }}" alt="Left Vote" onclick="vote('{{article_obj._id}}', 1);" />
       <span id="votes-{{article_obj._id}}">
         {% set votes = article_obj.votes | int %}
         {{ votes }}
       </span>
-      <img class="rightvote-icon" src="{{ url_for('static', filename='img/ikons/svg/arrow_right.svg' ) }}" alt="Right Vote" onclick="vote('{{article_obj._id}}', 'right');" />
+      <img class="rightvote-icon" src="{{ url_for('static', filename='img/ikons/svg/arrow_right.svg' ) }}" alt="Right Vote" onclick="vote('{{article_obj._id}}', -1);" />
       <table class="article-clickables-wrapper">
         <tr>
           <td>
