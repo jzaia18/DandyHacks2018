@@ -88,6 +88,8 @@ def main(args) -> List[str]:
     else:
         for item in items:
             result += item["body"]
+    # open("usaTODAY(BODY).txt", "w", encoding="UTF-8") as f:
+    #    f.write('["' + '", "'.join(result) + '"]')
     return result
 
 
