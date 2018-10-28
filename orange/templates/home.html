@@ -14,6 +14,7 @@ The Orange
 
   {% for article_obj in articles_list %}
   <div class="article-wrapper rounded">
+    <a name="{{article_obj._id}}"> </a>
     <div class="article-main" onclick="window.location = '/article/{{article_obj._id}}';">
       <p class="article-wrapper-header">
         {{article_obj.date}}
@@ -45,7 +46,7 @@ The Orange
             <a href="/article/{{article_obj._id}}#comments"> Comments </a>
           </td>
           <td>
-            Share
+            <a href="#{{article_obj._id}}"  onclick="copyToClipboard('http://theorange.me/article/{{article_obj._id}}');"> Share </a>
           </td>
         </tr>
       </table>
@@ -59,4 +60,5 @@ The Orange
 
 {% block js %}
 <script type="text/javascript" src="{{ url_for('static', filename='js/ajax.js' ) }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/home.js' ) }}"></script>
 {% endblock %}
