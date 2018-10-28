@@ -154,7 +154,8 @@ def main():
     filename_body = "training_data_key_2.txt"
     filename_title = "titles.txt"
 
-    #generate_training_data(releaseSpiders.main(), filename_title, key)
+    
+    #generate_training_data([data], filename_body, key)
 
     generate_articles(key, "generated_articles.txt", "training_data_key_2.txt", 15)
     generate_titles(key, "generated_titles.txt", "titles.txt", 15)
