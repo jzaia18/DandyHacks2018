@@ -3,8 +3,7 @@ markovChain Algorithm
 Author: Jeffrey Weng
 """
 
-import random, os, releaseSpiders
-from spiders import usaSpider, huffSpider
+import random, os, releaseSpiders, codecs
 
 #Format Text and Create Dictionary
 def build_dict(text, key, previous_Dict):
@@ -68,7 +67,7 @@ def generate_text(theDict, key, sentences):
         #obtain random_next_key based on weights
         if random_key in theDict:
             weighted_keys = list(theDict[random_key].keys())
-            print(str(len(weighted_keys)))
+            #print(str(len(weighted_keys)))
             for value in range(len(weighted_keys)): 
                 temp_str += (str(weighted_keys[value] + " ") * int(theDict[random_key][weighted_keys[value]]))
             random_next_key = temp_str.strip().split(" ")[random.randint(0, len(temp_str.strip().split(" ")) - 1)]
@@ -84,7 +83,7 @@ def generate_text(theDict, key, sentences):
                 text += str(random_key) + " "
 
             weighted_keys = list(theDict[random_key].keys())
-            print(str(len(weighted_keys)))
+            #print(str(len(weighted_keys)))
             for value in range(len(weighted_keys)): 
                 temp_str += (str(weighted_keys[value] + " ") * int(theDict[random_key][weighted_keys[value]]))
             random_next_key = temp_str.strip().split(" ")[random.randint(0, len(temp_str.strip().split(" ")) - 1)]
@@ -119,46 +118,58 @@ def generate_text(theDict, key, sentences):
 
 def generate_training_data(data, filename, key):
     for text in data: 
-        with open(filename, 'r+') as file: 
+        with open(filename, 'r+', encoding="utf-8") as file: 
             if os.stat(filename).st_size == 0: 
                 file.write(str(build_dict(text, key, {})))
             else:
                 new_dict = eval(file.readline().replace('\x00', "").strip())
-                open(filename, "w")
+                open(filename, "w", encoding="utf-8")
                 file.write(str(build_dict(text, key, new_dict)))
 
-# def generate_articles(key, num_articles):
-#     sentences = 10
-#     #Assume there's already training data
-#     #with open(filename, 'w') as file: 
-#         #new_dict = eval(file.readline().replace('\x00', "").strip())
-#         #print(generate_text(new_dict, key, sentences))
+def generate_articles(key, file_to_write, training_data, num_articles):
+    sentences = 10
+    articles = []
+    #Assume there's already training data
+    with open(training_data, 'r') as file: 
+        new_dict = eval(file.readline().replace('\x00', "").strip())
+        for i in range(num_articles):
+            articles.append(generate_text(new_dict, key, sentences))
+    with open(file_to_write, "w") as f:
+        f.write(str(articles))
 
-# def generate_titles(key):
-#     sentences = 1
-#     #Assume there's already training data
-#     with open("generated_titles.txt", 'w') as file: 
-#         new_dict = eval(file.readline().replace('\x00', "").strip())
-#         #print(generate_text(new_dict, key, sentences))
+def generate_titles(key, file_to_write, training_data, num_titles):
+    sentences = 1
+    titles = []
+    #Assume there's already training data
+    with open(training_data, 'r') as file: 
+        new_dict = eval(file.readline().replace('\x00', "").strip())
+        for i in range(num_titles):
+            titles.append(generate_text(new_dict, key, sentences))
+    with open(file_to_write, "w") as f: 
+        f.write(str(titles))
 
 def main():
     key = 2
-    #Obama
-    #obama_data.txt
-    #obamaSpider.main(["http://obamaspeeches.com/"])
 
     filename_body = "training_data_key_2.txt"
     filename_title = "titles.txt"
+
+    # with open("usaTODAY(BODY).txt", "r") as file: 
+    #    generate_training_data(eval(file.readline()), filename_body, key)
+    # with open("huffPost(TITLE).txt", "r") as file: 
+    #     generate_training_data(data, filename_title, key)
+    # with open("huffPost(BODY).txt", "r") as file: 
+    #     generate_training_data(eval(file.readline()), filename_body, key)
+
+    # with open("usaTODAY(TITLE).txt", "r") as file:
+    #    generate_training_data(eval(file.readline()), filename_title, key)
     #generate_training_data(releaseSpiders.main(), filename_body, key)
-    generate_training_data(usaSpider.main(["-b"]), filename_body, key)
-    generate_training_data(usaSpider(["-t"]), filename_title, key)
-    generate_training_data(huffSpider(["-b"]), filename_body, key)
-    generate_training_data(huffSpider(["-t"]), filename_title, key)
 
-
-
+    generate_articles(key, "generated_articles.txt", "training_data_key_2.txt", 10)
+    generate_titles(key, "generated_titles.txt", "titles.txt", 10)
+    
     #test
-    # text = "The dude is Obama? Bro the fish. The dog Barked! Mom bit the Cat? The dog ate John's bone!"
-    # print(generate_text(build_dict(text, key, {}), key, sentences ))
+    #text = "The dude is Obama? Bro the fish. The dog Barked! Mom bit the Cat? The dog ate John's bone!"
+    #print(generate_text(build_dict(text, key, {}), key, sentences ))
     
 main()
