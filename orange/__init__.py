@@ -8,8 +8,10 @@ app.secret_key = os.urandom(16)
 @app.route("/")
 @app.route("/home")
 def root():
-    articles_list = mongoUtils.get_n_stories(25)
-    return render_template("home.html", articles_list = articles_list)
+    articles_list = []
+    for each in mongoUtils.get_n_stories(25):
+        articles_list.append(each)
+    return render_template("home.html", articles_list = articles_list[::-1])
 
 @app.route("/about")
 def about():
