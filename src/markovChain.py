@@ -148,17 +148,43 @@ def generate_titles(key, file_to_write, training_data, num_titles):
     with open(file_to_write, "w") as f: 
         f.write(str(titles))
 
+def combine_training_sets(file_to_combine, original_file):
+    #file_to_combine is big
+    #original_file is small
+    dict_1 = {}
+    dict_2 = {}
+    with open(original_file, 'r') as file: 
+        dict_1 = eval(file.readline().replace('\x00', "").strip())
+    with open(file_to_combine, 'r') as file: 
+        dict_2 = eval(file.readline().replace('\x00', "").strip())
+
+    for key in dict_2.keys(): 
+        if key in dict_1: 
+            for value in dict_2[key].keys():
+                if value in dict_1[key]:
+                    dict_1[key][value] += dict_2[key][value]
+                else: 
+                    dict_1[key][value] = dict_2[key][value]
+        else: 
+            dict_1[key].update(dict_2[key])
+    with open("training_combined_key_2.txt", "w") as file:
+        file.write(str(dict_1))
+
+    
+
+
 def main():
     key = 2
 
     filename_body = "training_data_key_2.txt"
     filename_title = "titles.txt"
 
-    
-    #generate_training_data([data], filename_body, key)
+    #generate_training_data(releaseSpiders.main(), "training_data_key_new.txt", key)
 
-    generate_articles(key, "generated_articles.txt", "training_data_key_2.txt", 15)
-    generate_titles(key, "generated_titles.txt", "titles.txt", 15)
+    #combine_training_sets("training_data_key_2.txt", "training_data_key_small.txt")
+
+    generate_articles(key, "generated_articles.txt", "training_data_key_new.txt", 5)
+    generate_titles(key, "generated_titles.txt", "titles.txt", 5)
     
     #test
     #text = "The dude is Obama? Bro the fish. The dog Barked! Mom bit the Cat? The dog ate John's bone!"
