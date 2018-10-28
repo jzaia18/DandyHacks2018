@@ -35,3 +35,9 @@ Steven Li, Jeffrey Weng, Justin Yau, Jake Zaia <br>
       </li>
     </ul>
   </p>
+
+<h2>Images</h2>
+
+![alt text](theOrangeImages/orange01.png "page01")
+![alt text](theOrangeImages/orange02.png "page02")
+![alt text](theOrangeImages/orange03.png "page03")
