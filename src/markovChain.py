@@ -4,6 +4,7 @@ Author: Jeffrey Weng
 """
 
 import random, os, releaseSpiders, io
+from spiders import obamaSpider
 
 #Format Text and Create Dictionary
 def build_dict(text, key, previous_Dict):
@@ -179,12 +180,12 @@ def main():
     filename_body = "training_data_key_2.txt"
     filename_title = "titles.txt"
 
-    #generate_training_data(releaseSpiders.main(), "training_data_key_new.txt", key)
+    #generate_training_data(obamaSpider.main(["http://obamaspeeches.com/"]), "obama.txt", key)
 
     #combine_training_sets("training_data_key_2.txt", "training_data_key_small.txt")
 
-    generate_articles(key, "generated_articles.txt", "training_data_key_new.txt", 5)
-    generate_titles(key, "generated_titles.txt", "titles.txt", 5)
+    generate_articles(key, "generated_article_obama.txt", "obama.txt", 1)
+    #generate_titles(key, "generated_titles.txt", "titles.txt", 5)
 
     #test
     #text = "The dude is Obama? Bro the fish. The dog Barked! Mom bit the Cat? The dog ate John's bone!"
